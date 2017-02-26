@@ -26,3 +26,4 @@ figwheel_server.log
 .bowerrc
 *~
 *#*
+/data/user_story3.txt

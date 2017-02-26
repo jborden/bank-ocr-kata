@@ -5,7 +5,7 @@
 (nodejs/enable-util-print!)
 
 (defn -main []
-  (println "Hello world!"))
+  (println "Program is running"))
 
 (set! *main-cli-fn* -main)
 
@@ -87,6 +87,11 @@
   [f]
   (fs.readFileSync f "utf8"))
 
+(defn write-file!
+  "Write string to file f"
+  [f s]
+  (fs.writeFileSync f s "utf8"))
+
 (defn file-str->entries
   "Given a str representing a file of entries, split into a vector
   of entries"
@@ -116,3 +121,33 @@
                  (insert-blanks)
                  (mapv char-block)
                  (apply interleave)))))
+
+(defn process-number-coll
+  [coll & [result]]
+  (if (empty? coll)
+    result
+    (process-number-coll (nthrest coll 2)
+                         (+ result (reduce * (take 2 coll))))))
+
+(defn valid-bank-number?
+  [s]
+  "Given a string, determine if it is a legal bank number"
+  (boolean (= (mod (process-number-coll (interleave (map js/parseInt s)
+                                                    (reverse (range 1 10)))) 11)
+              0)))
+
+(defn number-validator
+  "Given a string, determine if it is a valid bank number"
+  [s]
+  (cond
+    (not (boolean (re-matches #"\d{9}" s)))
+    "ILL"
+    (not (valid-bank-number? s))
+    "ERR"
+    :else nil))
+
+(defn validate-digits
+  "Given a coll of digits, validate them and produce a string of the results
+  to write to a file"
+  [coll]
+  (apply str (map #(str % " " (number-validator %) "\n") coll)))
