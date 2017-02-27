@@ -23,7 +23,7 @@ guaranteed to do so.
 
 # Up and Running
 
-## node packages
+## Install node packages
 
 Install node packages required for this project
 
