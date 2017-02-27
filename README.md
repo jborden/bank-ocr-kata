@@ -1,4 +1,4 @@
-# Bank OCR Kata based on a Kata presented at XP2005
+# A solution in ClojureScript to the Bank OCR Kata presented at XP2005
 
 Project was created with the figwheel-node-template found at https://github.com/malyn/figwheel-node-template
 
