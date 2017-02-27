@@ -8,18 +8,15 @@ $ lein new figwheel-node bank-ocr-kata
 
 # Prerequisties
 
-This was written using:
+This project uses:
 
-node >= 4.2.1
+node v4.2.1
 
-Leiningen >= 2.7.1
+Leiningen 2.7.1
 
-npm >= 2.14.7
+npm 2.14.7
 
-java >= 1.8.0_101
-
-This project may still work given older versions of the required software, but is not
-guaranteed to do so.
+java 1.8.0_101
 
 # Up and Running
 
@@ -54,12 +51,12 @@ $ node target/server_dev/bank_ocr_kata.js
 
 The use case and user story scenarios are tested in test/bank_ocr_kata/core.cljs
 
-To run the tests at the command line:
+Run the tests at the command line:
 ```
 $ lein doo node test once
 ```
 
-Alternatively, run the tests at the REPL:
+Run the tests at the REPL:
 
 ```clojure
 dev:cljs.user=> (in-ns 'bank-ocr-kata.test.core)
