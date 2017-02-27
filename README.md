@@ -1,8 +1,6 @@
-# A ClojureScript solution to the Bank OCR Kata presented at XP2005
+## A ClojureScript solution to the Bank OCR Kata presented at XP2005
 
-# Prerequisties
-
-This project uses:
+## Prerequisties
 
 node v4.2.1
 
@@ -12,9 +10,7 @@ npm 2.14.7
 
 java 1.8.0_101
 
-# Up and Running
-
-## Install node packages
+### Install node packages
 
 Install node packages required for this project
 
@@ -22,35 +18,37 @@ Install node packages required for this project
 $ npm install
 ```
 
-## Run the figwheel repl
+## Figwheel REPL
 
-There is a cache issue with using figwheel for node projects. figwheel
-will hang on compilation unless you first remove the target dir. Do this by
-starting the figwheel repl with:
+### Run the figwheel repl
+
+figwheel will hang on compilation unless you first remove the previous compiled javascript in the target/ dir,
+therefore 'lein clean' is run before starting the REPL
 
 ```
 $ rlwrap lein do clean, figwheel
 ```
 
-## Run the node server
+### Run the node server
 
-In a seperate terminal, run the node server. This should be done after running
-figwheel to transpile the javascript.
+In a another terminal, run the node server. This should be done after
+figwheel has compiled the project to javascript and is awaiting connection.
 
 ```
 $ node target/server_dev/bank_ocr_kata.js
 ```
 
-# Running the tests
+## Tests
 
-The use case and user story scenarios are tested in test/bank_ocr_kata/core.cljs
+The tests are located in test/bank_ocr_kata/core.cljs and make use
+of the data/ dir.
 
-Run the tests at the command line:
+### Command Line
 ```
 $ lein doo node test once
 ```
 
-Run the tests at the REPL:
+### REPL
 
 ```clojure
 dev:cljs.user=> (in-ns 'bank-ocr-kata.test.core)
