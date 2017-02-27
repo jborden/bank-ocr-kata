@@ -14,7 +14,7 @@ java 1.8.0_101
 
 Install node packages required for this project
 
-```
+```bash
 $ npm install
 ```
 
@@ -25,7 +25,7 @@ $ npm install
 figwheel will hang on compilation unless you first remove the previous compiled javascript in the target/ dir,
 therefore 'lein clean' is run before starting the REPL
 
-```
+```bash
 $ rlwrap lein do clean, figwheel
 ```
 
@@ -34,7 +34,7 @@ $ rlwrap lein do clean, figwheel
 In a another terminal, run the node server. This should be done after
 figwheel has compiled the project to javascript and is awaiting connection.
 
-```
+```bash
 $ node target/server_dev/bank_ocr_kata.js
 ```
 
@@ -44,8 +44,18 @@ The tests are located in test/bank_ocr_kata/core.cljs and make use
 of the data/ dir.
 
 ### Command Line
-```
+
+```bash
 $ lein doo node test once
+
+;; ======================================================================
+;; Testing with Node:
+
+
+Testing bank-ocr-kata.test.core
+
+Ran 2 tests containing 9 assertions.
+0 failures, 0 errors.
 ```
 
 ### REPL
