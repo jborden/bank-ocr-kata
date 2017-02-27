@@ -1,11 +1,5 @@
 # A ClojureScript solution to the Bank OCR Kata presented at XP2005
 
-Project was created with the figwheel-node-template found at https://github.com/malyn/figwheel-node-template
-
-```
-$ lein new figwheel-node bank-ocr-kata
-```
-
 # Prerequisties
 
 This project uses:
