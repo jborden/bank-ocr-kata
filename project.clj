@@ -1,7 +1,6 @@
-(defproject bank-ocr-kata "0.1.0-SNAPSHOT"
+(defproject bank-ocr-kata "0.2.0"
   :description "Bank OCR Kata"
   :url "https://github.com/jborden/bank-ocr-kata"
-
   :min-lein-version "2.5.3"
 
   :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
@@ -31,10 +30,10 @@
                                    :target :nodejs
                                    :optimizations :none
                                    :source-map true}}
-                       {:id "prod"
-                        :source-paths ["src"]
-                        :compiler {
-                                   :output-to "server.js"
-                                   :output-dir "target/server_prod"
-                                   :target :nodejs
-                                   :optimizations :simple}}]})
+                       {:id "test"
+                        :source-paths ["src" "test" "doo"]
+                        :compiler {:output-to "target/test_dev/testable.js"
+                                   :output-dir "target/test_dev"
+                                   :main bank-ocr-kata.runner
+                                   :target :nodejs}}
+                       ]})
